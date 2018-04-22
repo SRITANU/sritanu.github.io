@@ -1,2 +1,3 @@
-title: Sritanu Chakraborty
-description: Welcome to my homepage. Keep an eye out for my updated projects
+markdown: kramdown
+baseurl: /
+exclude: ['README.md']
