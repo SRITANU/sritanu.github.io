@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Deep Learning Box Setup and Installation
 meta: Setting up your own Deep learning Box
 category: DeepLearning
