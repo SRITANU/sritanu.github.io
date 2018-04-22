@@ -11,8 +11,8 @@ After a lot of hesitation, I finally took the plunge to get my own Deep learning
 
 ## **Table of contents:**
 
-* Specifications
-* Software Installation
+* [Specifications](#Specifications)
+* [Software Installation](#Software Installation)
 
 *****
 
