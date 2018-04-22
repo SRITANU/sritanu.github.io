@@ -118,7 +118,7 @@ plugins:
   - jekyll-sitemap
   # - jekyll-titles-from-headings
 
-theme: jekyll-theme-hydejack
+#theme: jekyll-theme-hydejack
 remote_theme: qwtel/hydejack@gem
 # SEO Tag
 # ---------------------------------------------------------------------------------------
