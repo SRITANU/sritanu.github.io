@@ -5,21 +5,18 @@ meta: Setting up your own Deep learning Box
 category: DeepLearning
 ---
 
-# Deep Learning Box: Setup and Installation
+![The Silent Beast](/assets/posts/2018-04-22-deep-learning-box-setup-and-installation/Desktop_DL.png){:height="800px" width="800px"}
 
-<span class="figcaption_hack">The Silent Beast</span>
+After a lot of hesitation, I finally took the plunge to get my own Deep learning Box. Without any further ado, let’s take a dive into the specifications.
 
-After a lot of hesitation, I finally took the plunge to get my own Deep learning
-Box.Without any further ado, let’s take a dive into the specifications.
-
-### **Table of contents:**
+## **Table of contents:**
 
 * Specifications
 * Software Installation
 
 *****
 
-#### **Specifications:**
+### **Specifications:**
 
 The links are from amazon but I bought it from a local store.
 
@@ -46,7 +43,7 @@ If you are in India, remember things are even pricier. I was running into approx
 
 *****
 
-**Software Installation:**
+### **Software Installation:**
 
 Now that we are done with the hardware configs. Let’s jump straight into the software installation part. It’s gonna be a long read, so
 hold on to your seats.
@@ -55,7 +52,8 @@ Posts which aided me in the software installation:<br>
 * [Cuda installation guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#introduction)<br>
 * [CudNN installation guide](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html)
 
-**Operating system:**
+#### **Operating system:**
+
 **Linux** should be the first thing on your mind as most of the widely used DL software is first designed to work on Linux and then on other
 operating system. I went with [Ubuntu 16.04 LTS](https://www.ubuntu.com/download/desktop) . You are free to choose your own. Although I would suggest to choose among Ubuntu, Fedora, RHEL, OpenSuse.
 
@@ -66,7 +64,7 @@ You can install your OS by bootable USB. If you haven’t done it before, you ca
 
 The 1st step is complete. Let’s move to the second. Hang in there.
 
-**Pre-installation checks:**
+#### **Pre-installation checks:**
 
 Verify if you have Nvidia device with the following command.You should have something similar in output:
 ```
@@ -116,15 +114,17 @@ linux-headers-4.13.0–38-generic is already the newest version (4.13.0–38.43~
 ```
 The 2nd step is done. Hope you all are still with me.
 
-**Deep learning stack:**
+#### **Deep learning stack:**
+
 Now, we need to install three major things to make most
-of the DL software work:<br> * Nvidia driver<br> * CUDA<br> * CuDNN
+of the DL software work:
+ * Nvidia driver
+ * CUDA
+ * CuDNN
 
-I will also discuss the problems I ran into and you might too while installing
-the above. It’s pretty common to mess up with Cuda installation.Don’t worry.
+I will also discuss the problems I ran into and you might too while installing the above. It’s pretty common to mess up with Cuda installation. Don’t worry.
 
-So,Cuda is a parallel computing platform to run general purpose code on our gpu
-and CuDNN is a deep learning neural network library built on top of Cuda.
+So, Cuda is a parallel computing platform to run general purpose code on our gpu and CuDNN is a deep learning neural network library built on top of Cuda.
 
 Let’s take a look at the first two:
 
@@ -269,10 +269,9 @@ NOTE: The CUDA Samples are not meant for performance measurements. Results may v
 Now, at any time you run into any problem during Cuda installation, it might be helpful to start from the beginning by doing the following:
 
 
-**Problems faced while installing Cuda:** <\br>
-The problem I faced when I installed
-Cuda for the first time was that I ran into a [Login
-Loop](https://askubuntu.com/questions/762831/ubuntu-16-stuck-in-login-loop-after-installing-nvidia-364-drivers)
+**Problems faced while installing Cuda:**
+
+The problem I faced when I installed Cuda for the first time was that I ran into a [Login Loop](https://askubuntu.com/questions/762831/ubuntu-16-stuck-in-login-loop-after-installing-nvidia-364-drivers)
 . This [answer](https://askubuntu.com/a/848668) worked for me. Also, you might
 face [network connectivity problems in the login
 screen](https://askubuntu.com/questions/16376/connect-to-network-before-user-login).
@@ -304,7 +303,7 @@ sritanu@combalgorythm:~/Downloads/cuda$ sudo cp lib64/* /usr/local/cuda/lib64/
 
 sritanu@combalgorythm:~/Downloads/cuda$ sudo cp include/* /usr/local/cuda/include/
 ```
-**Deep learning software:**
+#### **Deep learning software:**
 
 **Install Anaconda:**
 
@@ -342,7 +341,7 @@ env is the name of your environment you can use any name of your choice.
 ```
 Activate your virtual environment before installing the following DL software:
 
-**Install **[Theano](http://deeplearning.net/software/theano/)**:**
+**Install** [Theano](http://deeplearning.net/software/theano/) :
 ```
 conda install theano pygpu
 ```
@@ -358,79 +357,67 @@ $ conda install mkl=2017
 ```
 Or, add this to your `~/.bashrc` file: `export MKL_THREADING_LAYER=GNU ` then re-open your terminal.
 
-**Install **[Tensorflow](https://www.tensorflow.org/)**:**
+**Install** [Tensorflow](https://www.tensorflow.org/) :
 
 The DL framework by Google.
 
 1.  Install tensorflow-gpu from conda:
-
-    $ conda install -c anaconda tensorflow-gpu
-
+```
+$ conda install -c anaconda tensorflow-gpu
+```
 2. Validate your install as mentioned
-[here](https://www.tensorflow.org/install/install_linux#ValidateYourInstallation)
-.
+[here](https://www.tensorflow.org/install/install_linux#ValidateYourInstallation).
 
-**Install **[Keras](https://keras.io/)**:**
+**Install** [Keras](https://keras.io/) :
 
 Keras is a high level neural network which can use either one of the three :
 Tensorflow or Theano or CNTK as its [backend](https://keras.io/backend/).
-
-    $ pip install keras
-
-**Install **[Pytorch](http://pytorch.org/)**:**
+```
+$ pip install keras
+```
+**Install** [Pytorch](http://pytorch.org/) :
 
 Pytorch is a relatively new DL framework which is my current favourite due to
-these
-[reasons](https://towardsdatascience.com/pytorch-vs-tensorflow-spotting-the-difference-25c75777377b).
+these [reasons](https://towardsdatascience.com/pytorch-vs-tensorflow-spotting-the-difference-25c75777377b).
 Run the following to install it:
-
-    $ conda install pytorch torchvision cuda80 -c soumith
-
-The above command might result into ridiculously slow package download and
-installation. You may install it directly via pip.
-
-    $ pip install torch torchvision
-
-[Jupyter notebook](http://jupyter.org/)**:**
+```
+$ conda install pytorch torchvision cuda80 -c soumith
+```
+The above command might result into ridiculously slow package download and installation. You may install it directly via pip.
+```
+$ pip install torch torchvision
+```
+**Install** [Jupyter notebook](http://jupyter.org/) :
 
 It’s an open source web-based IDE and it’s the defacto standard for data science
 development.
 
-Run **conda list **and check** **if jupyter is installed in the virtual
-environment. If not, then install it.<br> Install it by:
+Run `conda list` and check if jupyter is installed in the virtual environment. If not, then install it.
 
-    $ conda install jupyter
-
+Install it by:
+```
+$ conda install jupyter
+```
 Run it by:
-
-    $ jupyter notebook
-
+```
+$ jupyter notebook
+```
 **Other important softwares:**
 
-1.  Install git:
+1.  Install **git**:
+```
+$ sudo apt-get install git
+```
+2. If you are working on gpu servers, its highly likely that you will just have a terminal to work with and no ide at all. Learn nano/vim. Vim has a steep learning curve but it’s worth the effort. You can install vim by:
+```
+$ sudo apt-get install vim
+```
+Learn vim by simply typing vimtutor in your terminal. There are a lot of good tutorials on vim on the web. Make your vim awesome by installing plugins and make it full blown editor for python development. You can follow this [post](http://moelove.info/vim/) .
 
-    sudo apt-get install git
+3. Install Atom/SublimeText. I prefer [Atom](https://atom.io/). Download .deb [file](https://atom.io/) and install it.
 
-2. If you are working on gpu servers, its highly likely that you will just have
-a terminal to work with and no ide at all. Learn nano/vim. Vim has a steep
-learning curve but it’s worth the effort.
+4. [Visual Code](https://code.visualstudio.com/) : You do have an option to install it while installing Anaconda
 
-You can install vim by:
-
-
-Learn vim by simply typing vimtutor in your terminal.There are a lot of good
-tutorials on vim on the web.
-
-Make your vim awesome by installing plugins and make it full blown editor for
-python development. You can follow this [post](http://moelove.info/vim/) .
-
-3. Install Atom/SublimeText. I prefer [Atom](https://atom.io/). Download .deb
-[file](https://atom.io/) and install it.
-
-4. [Visual Code](https://code.visualstudio.com/) : You do have an option to
-install it while installing Anaconda
-
-5. [PyCharm CE](https://www.jetbrains.com/pycharm/download/) : Brilliant python
-IDE
+5. [PyCharm CE](https://www.jetbrains.com/pycharm/download/) : Brilliant python IDE
 
 That’s it folks. Enjoy!!
