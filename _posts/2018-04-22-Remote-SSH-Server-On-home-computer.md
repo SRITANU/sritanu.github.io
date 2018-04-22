@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Remote SSH on home computer
 meta: Setting up remote ssh on home computer
 category: ssh
